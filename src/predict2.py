@@ -42,5 +42,6 @@ def make_prediction(current_path, base_url):
 
     for image_batch, label_batch in data_gen.generate_data(batch_size=len(x_test), test=True):
         prediction = model.predict(image_batch, verbose=1)
+        
         res = save_results_custom(prediction, 'rgb', pred_save_path, test_label_filenames_list, base_url)
         return res
