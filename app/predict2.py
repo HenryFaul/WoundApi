@@ -1,8 +1,8 @@
 
 from keras.models import load_model
-from src.models.deeplab import Deeplabv3, relu6, BilinearUpsampling, DepthwiseConv2D
-from src.utils.learning.metrics import dice_coef, precision, recall
-from src.utils.io.data_custom import save_results_custom, load_test_images, DataGenCustom
+from app.models.deeplab import Deeplabv3, relu6, BilinearUpsampling, DepthwiseConv2D
+from app.utils.learning.metrics import dice_coef, precision, recall
+from app.utils.io.data_custom import save_results_custom, load_test_images, DataGenCustom
 from pathlib import Path
 from keras.layers import BatchNormalization
 

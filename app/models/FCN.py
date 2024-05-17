@@ -1,7 +1,7 @@
 from keras.models import Model
 from keras.layers import Input
 from keras.layers import Conv2D, MaxPooling2D, Dropout
-from src.utils import BilinearUpSampling2D
+from app.utils import BilinearUpSampling2D
 
 
 def FCN_Vgg16_16s(input_shape=None, weight_decay=0., batch_momentum=0.9, batch_shape=None, classes=1):
