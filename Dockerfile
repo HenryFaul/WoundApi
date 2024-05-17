@@ -1,6 +1,6 @@
 
-#FROM python:3.9
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
+ FROM python:3.9
+#FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
 
 # set the working directory
 WORKDIR /code
@@ -15,4 +15,4 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 COPY ./src ./src
 
 # start the server
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "80", "--reload"]
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "80"]
