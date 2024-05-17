@@ -1,0 +1,10 @@
+fastapi
+pydantic
+uvicorn
+pillow         
+numpy                  
+matplotlib
+tensorflow
+keras == 2.13.*
+opencv-python-headless
+python-multipart
