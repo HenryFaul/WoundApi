@@ -9,13 +9,8 @@ import os
 import time
 from pathlib import Path
 import sys
-import cv2
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
-
-#UPLOAD_DIRECTORY = './static/picture_uploads/raw_uploads/'
-#RESIZED_DIRECTORY = './static/picture_uploads/resized_uploads/'
-
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent
 static_directory = f"{BASE_DIR}/static"
@@ -36,7 +31,7 @@ app = FastAPI()
 app.mount(static_directory, StaticFiles(directory=static_directory), name="static")
 
 @app.get("/")
-async def main():
+async def home():
     return FileResponse(index_directory)
 
 @app.post('/upload')
@@ -77,10 +72,10 @@ async def upload(file: UploadFile, request: Request):
         # Return prediction response as JSON
         return JSONResponse(content=prediction_response)
 
-    #except Exception as e:
-    #    raise HTTPException(
-     #       status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-     #       detail='There was an error uploading the file: ' + str(e),
-     #   )
+    except Exception as e:
+        raise HTTPException(
+           status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+           detail='There was an error uploading the file: ' + str(e),
+        )
     finally:
         await file.close()
