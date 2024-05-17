@@ -1,6 +1,4 @@
-fastapi
 pydantic
-uvicorn
 pillow         
 numpy                  
 matplotlib
