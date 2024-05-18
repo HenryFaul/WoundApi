@@ -68,7 +68,11 @@
             <tr>
                 <th scope="row">image</th>
                 <td id="image">NA</td>
+            </tr>
 
+            <tr>
+                <th scope="row">original image</th>
+                <td id="image_original">NA</td>
             </tr>
 
 
@@ -76,6 +80,7 @@
         </table>
 
         <img id="dynamicImage" src="" alt="wound" width="224" height="224">
+        <img id="dynamicImageOriginal" src="wound_original" alt="wound" width="224" height="224">
 
 
     </div>
@@ -107,8 +112,13 @@
                     $('#black_pixels').html(response.black_pixels);
                     $('#wound_size').html(response.wound_size + "%");
                     $('#image').html(response.file_path);
+                    $('#image_original').html(response.original_file_path);
                     $('#dynamicImage').attr('src', response.file_path)
+                    $('#dynamicImageOriginal').attr('src', response.original_file_path)
+                    
                 },
+
+
                 error: function (err) {
                     // Hide spinner
                     $('#spinner').hide();

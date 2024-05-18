@@ -200,7 +200,7 @@ def save_results(np_array, color_space, outpath, test_label_filenames_list):
         i += 1
 
 
-def save_results_custom(np_array, color_space, outpath, test_label_filenames_list, base_url):
+def save_results_custom(np_array, color_space, outpath, test_label_filenames_list, base_url,resized_original):
     
 
     filename = test_label_filenames_list[0]
@@ -226,6 +226,7 @@ def save_results_custom(np_array, color_space, outpath, test_label_filenames_lis
         "black_pixels": float(number_of_black_pix),
         "wound_size": float(relative_wound_size),
         "file_path": outpath + new_file_name,
+        "original_file_path":resized_original
     }
     return value
 

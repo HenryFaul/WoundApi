@@ -68,7 +68,7 @@ async def upload(file: UploadFile, request: Request):
         resized_image.save(resized_file_path)
         base_url = str(request.base_url)
         #return path
-        prediction_response = make_prediction(RESIZED_DIRECTORY+timestr, RESIZED_DIRECTORY)
+        prediction_response = make_prediction(RESIZED_DIRECTORY+timestr, RESIZED_DIRECTORY,resized_file_path)
         # Return prediction response as JSON
         return JSONResponse(content=prediction_response)
 

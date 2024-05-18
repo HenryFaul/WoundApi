@@ -20,7 +20,7 @@ file_path_training = f"{BASE_DIR}/training_history/training.hdf5"
 
 
 
-def make_prediction(current_path, base_url):
+def make_prediction(current_path, base_url,resized_original):
     
 
     data_gen = DataGenCustom(current_path+"/", split_ratio=0.0, x=input_dim_x, y=input_dim_y, color_space=color_space)
@@ -43,5 +43,5 @@ def make_prediction(current_path, base_url):
     for image_batch, label_batch in data_gen.generate_data(batch_size=len(x_test), test=True):
         prediction = model.predict(image_batch, verbose=1)
         
-        res = save_results_custom(prediction, 'rgb', pred_save_path, test_label_filenames_list, base_url)
+        res = save_results_custom(prediction, 'rgb', pred_save_path, test_label_filenames_list, base_url,resized_original)
         return res
